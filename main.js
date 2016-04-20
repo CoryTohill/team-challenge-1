@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Challenge #1
 
 // 1 Create an HTML page that contains a text area and a button labeled Create.
@@ -34,3 +35,6 @@ var createCard = function () {
 
 var createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createCard);
+=======
+alert("test");
+>>>>>>> master
