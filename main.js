@@ -22,9 +22,8 @@
 //   and no other cards, should then be removed from the DOM. Not just made invisible,
 //   actually removed from the DOM.
 
-
-
-
+var txtColor = document.getElementsByClassName('txtColor');
+var bgColor = document.getElementsByClassName('bgColor');
 var counter = 0;
 
 // function that inserts user text into a new card after all previous cards created
@@ -51,12 +50,14 @@ var colorAdder = function (count,Id) {
 		var inputNum = ("input"+counter);
 		var cardId = document.getElementById(Id)
 		var content = (
-			'<input type="color" id="bgColor'+inputNum+'"></input>'+
-    		'<input type="color" id="txtColor"'+inputNum+'"></div>'
+			'<input type="color" class="bgColor"></input>'+
+    		'<input type="color" class="txtColor"></div>'
     		);
 		content += cardId.innerHTML;
-		console.log(cardId.innerHTML);
 		cardId.innerHTML = content;
+		bgColor = document.getElementsByClassName('bgColor');
+		txtColor = document.getElementsByClassName('txtColor');
+		colorChanger();
 	}
 
 // function that adds event listeners to delete buttons
@@ -69,14 +70,27 @@ function eventListenerDelete () {
   }
 }
 
-
 // function that deletes the parent node of the selected element
 function deleteCard () {
   this.parentNode.parentNode.removeChild(this.parentNode);
 }
 
+var bgChange = function() {	
+	this.parentNode.style.backgroundColor = this.value;
+}
+var txtChange = function() {	
+	this.parentNode.style.color = this.value;
+}
 
+var colorChanger = function () {
+	for(i = 0; i < bgColor.length; i++) {
+		txtColor = document.getElementsByClassName('txtColor')
+		bgColor = document.getElementsByClassName("bgColor");
+	    bgColor[i].addEventListener("change", bgChange);
+		txtColor[i].addEventListener("change", txtChange);
+	}
 
+};
 
 var createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createCard);
