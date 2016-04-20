@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // Challenge #1
 
 // 1 Create an HTML page that contains a text area and a button labeled Create.
@@ -23,18 +23,48 @@
 //   actually removed from the DOM.
 
 
+
+
+var counter = 0;
+
 // function that inserts user text into a new card after all previous cards created
 var createCard = function () {
-
-    var text = document.getElementById("userText").value;
     var cardDiv = document.getElementById('cardsDiv');
 
-    cardDiv.innerHTML += "<article><p>" + text + "</p></article>";
+    var cardId = "card" + counter;
+
+    var text = "<p>" + document.getElementById("userText").value + "</p>";
+
+    var deleteButtonHTML = "<input type=\"button\" value=\"Delete\" class=\"deleteButtons\"></input>";
+
+    cardDiv.innerHTML += "<article id=\""+ cardId + "\">"
+                      + text
+                      + deleteButtonHTML
+                      + "</article>";
+    counter ++;
+
+    eventListenerDelete();
 }
+
+// function that adds event listeners to delete buttons
+function eventListenerDelete () {
+  var deleteButton = document.getElementsByClassName("deleteButtons");
+  var deleteLoopLength = deleteButton.length;
+
+  for(i = 0; i < deleteLoopLength; i++) {
+    deleteButton[i].addEventListener("click", deleteCard);
+  }
+}
+
+
+// function that deletes the parent node of the selected element
+function deleteCard () {
+  this.parentNode.parentNode.removeChild(this.parentNode);
+}
+
+
 
 
 var createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createCard);
-=======
-alert("test");
->>>>>>> master
+
