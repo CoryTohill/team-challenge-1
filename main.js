@@ -49,15 +49,15 @@ var createCard = function () {
 
 var colorAdder = function (count,Id) {
 		var inputNum = ("input"+counter);
+		var cardId = document.getElementById(Id)
 		var content = (
 			'<input type="color" id="bgColor'+inputNum+'"></input>'+
     		'<input type="color" id="txtColor"'+inputNum+'"></div>'
     		);
-		content += Id.innerHTML;
-		console.log(content);
-		Id.innerHTML = content;
+		content += cardId.innerHTML;
+		console.log(cardId.innerHTML);
+		cardId.innerHTML = content;
 	}
-};
 
 // function that adds event listeners to delete buttons
 function eventListenerDelete () {
