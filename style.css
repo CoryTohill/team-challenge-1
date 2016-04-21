@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,900);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  font-family: "Roboto", Arial, serif;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+#userText {
+  padding: 20px;
+  display: block;
+  margin: 20px auto;
+  font-size: 1em;
+}
+
+#createButton {
+  padding: 10px;
+  display: block;
+  margin: 0 auto 5%;
+  font-weight: bolder;
+  font-size: 1.5em;
+  border-radius: .5em;
+  border: 2px solid #75787A;
+}
+
+.cards {
+  display: inline-block;
+  width: 30%;
+  min-height: 200px;
+  border: 2px solid black;
+  margin: 0 1.4% 2.8%;
+  border-radius: 2em;
+  background-color: white;
+  box-shadow: 10px 10px 10px black;
+}
+
+.cards p {
+  display: block;
+  border: 1px solid black;
+  height: 150px;
+  padding: 10px;
+}
+
+.deleteButtons {
+  margin: 5px auto;
+  display: block;
+  padding: 2px;
+  font-size: .7em;
+  border-radius: .5em;
+  border: 2px solid #75787A;
+}
+
+.bgColor,
+.txtColor {
+  display: inline-block;
+  margin: 10px 10%;
+  width: 20%;
+  border-radius: .5em;
+  border: 2px solid #75787A;
+}
+
+.bgColor {
+  margin-left: 20%;
+}
+
+.txtColor {
+  margin-right: 20%;
+}
