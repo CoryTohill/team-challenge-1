@@ -49,7 +49,7 @@ var colorChanger = function () {
 	}
 };
 
-//Changes background color of a given card
+//Changes background color of a given card and changes the borders to complementary colors
 var backgroundChange = function() {
 	this.parentNode.style.backgroundColor = this.value;
   var rgbValue = hexToRgb(this.value);
@@ -59,12 +59,13 @@ var backgroundChange = function() {
   this.parentNode.querySelector('.deleteButtons').style.border = compColorHolder;
   this.parentNode.querySelector('.bgColor').style.border = compColorHolder;
   this.parentNode.querySelector('.txtColor').style.border = compColorHolder;
-
+  this.defaultValue = this.value;
 }
 
 //Changes text color of a given card
 var textChange = function() {
 	this.parentNode.style.color = this.value;
+  this.defaultValue = this.value;
 }
 
 // function that adds event listeners to delete buttons
