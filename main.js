@@ -1,27 +1,6 @@
+//***************//Team Challenge No. 1//***************//
 
-// Challenge #1
-
-// 1 Create an HTML page that contains a text area and a button labeled Create.
-
-// 2 When the user enters in text into the text area and then clicks the create button,
-//   create a new card element in the DOM - similar to the quiz and group project.
-
-// 3 You decide the height/width of the card.
-
-// 4 Above the text on each card, there must be two input controls of type color.
-
-// 5 Above the text on each card, there must be a button element labeled Delete.
-
-// 6 When the user selects a color from the first input, then the background color of that card,
-//   and no other cards, should change to the color chosen.
-
-// 7 When the user selects a color from the second input, then the font color of that card,
-//   and no other cards, should change to the color chosen.
-
-// 8 When the user clicks the Delete button, the containing card,
-//   and no other cards, should then be removed from the DOM. Not just made invisible,
-//   actually removed from the DOM.
-
+//Variable Definitions
 var txtColor = document.getElementsByClassName('txtColor');
 var bgColor = document.getElementsByClassName('bgColor');
 var counter = 0;
@@ -41,11 +20,11 @@ var createCard = function () {
                       + deleteButtonHTML
                       + "</article>";
     colorAdder(counter, cardId)
-    counter ++;
-
     eventListenerDelete();
+    counter ++;
 }
 
+//Adds two color inputs to each new card created
 var colorAdder = function (count,Id) {
 		var inputNum = ("input"+counter);
 		var cardId = document.getElementById(Id)
@@ -59,6 +38,26 @@ var colorAdder = function (count,Id) {
 		txtColor = document.getElementsByClassName('txtColor');
 		colorChanger();
 	}
+
+//Adds event listeners to color inputs
+var colorChanger = function () {
+	for(i = 0; i < bgColor.length; i++) {
+		txtColor = document.getElementsByClassName('txtColor')
+		bgColor = document.getElementsByClassName("bgColor");
+	    bgColor[i].addEventListener("change", backgroundChange);
+		txtColor[i].addEventListener("change", textChange);
+	}
+};
+
+//Changes background color of a given card
+var backgroundChange = function() {	
+	this.parentNode.style.backgroundColor = this.value;
+}
+
+//Changes text color of a given card
+var textChange = function() {	
+	this.parentNode.style.color = this.value;
+}
 
 // function that adds event listeners to delete buttons
 function eventListenerDelete () {
@@ -75,23 +74,6 @@ function deleteCard () {
   this.parentNode.parentNode.removeChild(this.parentNode);
 }
 
-var bgChange = function() {	
-	this.parentNode.style.backgroundColor = this.value;
-}
-var txtChange = function() {	
-	this.parentNode.style.color = this.value;
-}
-
-var colorChanger = function () {
-	for(i = 0; i < bgColor.length; i++) {
-		txtColor = document.getElementsByClassName('txtColor')
-		bgColor = document.getElementsByClassName("bgColor");
-	    bgColor[i].addEventListener("change", bgChange);
-		txtColor[i].addEventListener("change", txtChange);
-	}
-
-};
-
+// Creates event listener for create button
 var createButton = document.getElementById("createButton");
 createButton.addEventListener("click", createCard);
-
